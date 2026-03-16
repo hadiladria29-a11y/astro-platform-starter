@@ -77,7 +77,7 @@
         <div class="book-format">Digital PDF</div>
 
         <!-- PayPal Button -->
-        <div id="paypal-button-container" class="buy-button"></div>
+        <div id="paypal-container-UF99M6EC8NRPE" class="buy-button"></div>
       </div>
     </main>
 
@@ -88,13 +88,12 @@
 
     <!-- Load PayPal SDK and render button on client -->
     <script type="module">
-      // Load PayPal SDK dynamically
       const script = document.createElement('script');
       script.src = "https://www.paypal.com/sdk/js?client-id=BAA0khc4waMJahQqzvgid9wk8766ieoDt-XFdCgqNOmnzx9Pi2v7voiScP_yYKFyBcKvBTVEJP-U6Y0wR4&components=hosted-buttons&disable-funding=venmo&currency=USD";
       script.onload = () => {
         paypal.HostedButtons({
-          hostedButtonId: "P9FGRF6APKEZE",
-        }).render("#paypal-button-container");
+          hostedButtonId: "UF99M6EC8NRPE",
+        }).render("#paypal-container-UF99M6EC8NRPE");
       };
       document.body.appendChild(script);
     </script>
