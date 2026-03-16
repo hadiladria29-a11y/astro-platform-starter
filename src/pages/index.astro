@@ -1,19 +1,98 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Markdown from '../components/Markdown.astro';
+--- 
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Adria Books</title>
+    <!-- PayPal SDK -->
+    <script src="https://www.paypal.com/sdk/js?client-id=BAA0khc4waMJahQqzvgid9wk8766ieoDt-XFdCgqNOmnzx9Pi2v7voiScP_yYKFyBcKvBTVEJP-U6Y0wR4&components=hosted-buttons&disable-funding=venmo&currency=USD"></script>
 
-const explainer = `
-An Astro website can go way beyond static pages - on the right platform.
+    <style>
+      body {
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+        background: #ffffff;
+        color: #333333;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        text-align: center;
+      }
 
-Netlify supports not only [Streaming SSR](https://docs.astro.build/en/guides/server-side-rendering/#html-streaming) and fast [Edge Middleware](https://docs.astro.build/en/guides/middleware/), but also [on-demand revalidation](https://www.netlify.com/blog/cache-tags-and-purge-api-on-netlify/) and [stale-while-revalidate](https://www.netlify.com/blog/swr-and-fine-grained-cache-control/). 
-Any page or data can be rebuilt only when needed, without site visitors ever getting a performance hit.
-`;
----
+      header {
+        padding: 2rem 1rem;
+        background-color: #8F6AF6;
+        color: #fff;
+        font-size: 2rem;
+        font-weight: bold;
+      }
 
-<Layout title="Welcome to Astro.">
-    <h1 class="mb-10">Netlify Platform Starter for Astro</h1>
-    <Markdown content={explainer} class="mb-10 text-lg" />
-    <p>
-        <a href="https://docs.netlify.com/frameworks/astro/" class="btn btn-lg sm:min-w-64">Read the Docs</a>
-    </p>
-</Layout>
+      main {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem 1rem;
+      }
+
+      .book-container {
+        max-width: 400px;
+        width: 100%;
+        border: 1px solid #ddd;
+        border-radius: 16px;
+        padding: 2rem;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      }
+
+      .book-title {
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+      }
+
+      .book-format {
+        font-size: 1rem;
+        color: #666;
+        margin-bottom: 1.5rem;
+      }
+
+      .buy-button {
+        margin-top: 1rem;
+      }
+
+      footer {
+        padding: 1rem;
+        font-size: 0.9rem;
+        color: #999;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>Adria Books</header>
+
+    <main>
+      <div class="book-container">
+        <div class="book-title">Skeptical of YOU</div>
+        <div class="book-format">Digital PDF</div>
+
+        <!-- PayPal Button -->
+        <div id="paypal-container-P9FGRF6APKEZE" class="buy-button"></div>
+        <script>
+          paypal.HostedButtons({
+            hostedButtonId: "P9FGRF6APKEZE",
+          }).render("#paypal-container-P9FGRF6APKEZE")
+        </script>
+      </div>
+    </main>
+
+    <footer>
+      &copy; 2026 Adria Books. All rights reserved. | 
+      <a href="https://adriabooks.netlify.app" target="_blank">adriabooks.netlify.app</a>
+    </footer>
+  </body>
+</html>
