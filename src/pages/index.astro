@@ -1,14 +1,10 @@
 ---
 --- 
-<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Adria Books</title>
-    <!-- PayPal SDK -->
-    <script src="https://www.paypal.com/sdk/js?client-id=BAA0khc4waMJahQqzvgid9wk8766ieoDt-XFdCgqNOmnzx9Pi2v7voiScP_yYKFyBcKvBTVEJP-U6Y0wR4&components=hosted-buttons&disable-funding=venmo&currency=USD"></script>
-
     <style>
       body {
         font-family: 'Poppins', sans-serif;
@@ -81,18 +77,26 @@
         <div class="book-format">Digital PDF</div>
 
         <!-- PayPal Button -->
-        <div id="paypal-container-P9FGRF6APKEZE" class="buy-button"></div>
-        <script>
-          paypal.HostedButtons({
-            hostedButtonId: "P9FGRF6APKEZE",
-          }).render("#paypal-container-P9FGRF6APKEZE")
-        </script>
+        <div id="paypal-button-container" class="buy-button"></div>
       </div>
     </main>
 
     <footer>
-      &copy; 2026 Adria Books. All rights reserved. | 
+      &copy; 2026 Adria Books. All rights reserved. |
       <a href="https://adriabooks.netlify.app" target="_blank">adriabooks.netlify.app</a>
     </footer>
+
+    <!-- Load PayPal SDK and render button on client -->
+    <script type="module">
+      // Load PayPal SDK dynamically
+      const script = document.createElement('script');
+      script.src = "https://www.paypal.com/sdk/js?client-id=BAA0khc4waMJahQqzvgid9wk8766ieoDt-XFdCgqNOmnzx9Pi2v7voiScP_yYKFyBcKvBTVEJP-U6Y0wR4&components=hosted-buttons&disable-funding=venmo&currency=USD";
+      script.onload = () => {
+        paypal.HostedButtons({
+          hostedButtonId: "P9FGRF6APKEZE",
+        }).render("#paypal-button-container");
+      };
+      document.body.appendChild(script);
+    </script>
   </body>
 </html>
